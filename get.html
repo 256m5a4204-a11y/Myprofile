@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>My Portfolio</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Poppins",sans-serif;
+}
+
+body {
+  background:#f4f4f4;
+}
+header {
+  background:linear-gradient(135deg,#222,#444);
+  color:#fff;
+  text-align:center;
+  padding:40px;
+}
+.profile-img {
+  width:150px;
+  height:150px;
+  border-radius:50%;
+  object-fit:cover;
+  border:4px solid #fff;
+  margin-bottom:15px;
+}
+nav {
+  background:#34495e;
+  text-align:center;
+  padding:10px;
+}
+
+nav button {
+  padding:10px;
+  margin:5px;
+  border:none;
+  cursor:pointer;
+  border-radius:5px;
+}
+
+nav button:hover {
+  background:#27ae60;
+  color:white;
+}
+.section {
+  display:none;
+  background:white;
+  margin:20px auto;
+  padding:20px;
+  max-width:900px;
+  border-radius:10px;
+}
+
+.active {
+  display:block;
+}
+.projects {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:15px;
+}
+.project {
+  background:#eee;
+  padding:15px;
+  border-radius:8px;
+  cursor:pointer;
+}
+.todo-box input {
+  padding:10px;
+  width:70%;
+}
+
+.todo-box button {
+  padding:10px;
+}
+
+li {
+  margin:10px 0;
+}
+input {
+  display:block;
+  width:100%;
+  margin:10px 0;
+  padding:10px;
+}
+.submit {
+  background:#27ae60;
+  color:white;
+  border:none;
+  padding:10px;
+  cursor:pointer;
+}
+footer {
+  background:#222;
+  color:white;
+  text-align:center;
+  padding:10px;
+}
+
+table {
+  width:100%;
+  border-collapse:collapse;
+}
+td, th {
+  border:1px solid #ccc;
+  padding:8px;
+  text-align:center;
+}
+</style>
+</head>
+<body>
+<header>
+  <img src="../vasu/pic.png.jpeg" class="profile-img">
+  <h1>KOTHAPALLI VASUDEVA</h1>
+  <p>Web Developer</p>
+  <br>
+  <button onclick="showPage('certifications')">Certifications</button>
+</header>
+<nav>
+  <button onclick="showPage('home')">Home</button>
+  <button onclick="showPage('projects')">Projects</button>
+  <button onclick="showPage('Qualifications')">Qualification</button>
+  <button onclick="logout()">Logout</button>
+  <button onclick="showPage('contact')">Contact</button>
+</nav>
+<section id="login" class="section active">
+  <h2>Login</h2>
+  <input id="user" placeholder="Username">
+  <input id="pass" type="password" placeholder="Password">
+  <button class="submit" onclick="login()">Login</button>
+</section>
+<section id="home" class="section">
+  <h2>About Me</h2>
+  <p>"Hello! My name is Kothapalli Vasudeva, and I am studying B.Tech student specializing in CSE (AI&ML) Engineering. With practical, hands-on experience in full-stack development, I am passionate about leveraging technology to build innovative and efficient web solutions. I thrive on new challenges and am dedicated to continuously learning and applying cutting-edge technologies in my projects. My goal is to translate theoretical knowledge into real-world applications, delivering impactful results as a web developer."</p><br>
+</section>
+<section id="projects" class="section">
+  <h2>Projects</h2>
+  <div class="projects">
+    <div class="project" onclick="showPage('todo')">
+      <h3>Todo App</h3>
+      <p>Click to open Todo App</p>
+    </div>
+    <div class="project">
+      <h3>Portfolio Website</h3>
+      <p>Personal portfolio design</p>
+    </div>
+    <div class="project">
+      <h3>Weather App</h3>
+      <p>Weather using API</p>
+    </div>
+  </div>
+  <ul>
+  <li>Basic computer skills</li>
+  <li>Basic knowledge in Python</li>
+  <li>Basic knowledge in C programming</li>
+  <li>Full stack development</li>
+</ul>
+</section>
+<section id="Qualifications" class="section">
+ <h2>Qualification & Documents</h2>
+  <table>
+    <tr>
+      <th>Qualification</th>
+      <th>College</th>
+      <th>Percentage</th>
+    </tr>
+    <tr>
+      <td>B.Tech (Pursuing)</td>
+      <td>BVC College</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>Diploma</td>
+      <td>BVC College</td>
+      <td>64.4%</td>
+    </tr>
+    <tr>
+      <td>10th Class</td>
+      <td>Z.P.P High School</td>
+      <td>64%</td>
+    </tr>
+  </table>
+</section>
+<section id="contact" class="section">
+  <h2>Contact Me</h2>
+  <div>
+  <p>Email: <a href="mailto:vasudevakothapalli347@gmail.com">vasudevakothapalli347@gmail.com</a></p>
+  <p>Phone: <a href="tel:+919703312776">+919703312776</a></p>
+  </div>
+</section>
+<section id="todo" class="section">
+  <h2>Todo App</h2>
+  <div class="todo-box">
+    <input id="task" placeholder="Enter task">
+    <button onclick="addTask()">Add</button>
+  </div>
+  <ul id="list"></ul>
+</section>
+<section id="certifications" class="section">
+  <h2>Certifications</h2>
+  <ul>
+     <div class="gallery" id="gallery"></div>
+     <li>Power BI Certificate 
+  <a href="pdf/simplelearn.pdf.pdf" target="_blank">View</a>
+</li>
+<li>generative ai 
+  <a href="pdf/ibm.pdf.pdf" target="_blank">View</a>
+</li>
+<li>Java Certificate 
+  <a href="pdf/java.pdf.pdf" target="_blank">View</a>
+</li>
+<li>IBM Certificate 
+  <a href="pdf/ibm1.pdf.pdf" target="_blank">View</a>
+  </ul>
+</section>
+<footer>
+  <p>© 2026 Vasudeva</p>
+</footer>
+<script>
+const USER = "admin";
+const PASS = "1234";
+window.onload = function() {
+  if(localStorage.getItem("login") === "true"){
+    showPage("home");
+  } else {
+    showPage("login");
+  }
+}
+function showPage(id){
+  let sections = document.querySelectorAll(".section");
+  sections.forEach(sec => sec.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+}
+function login(){
+  let u = document.getElementById("user").value;
+  let p = document.getElementById("pass").value;
+  if(u === USER && p === PASS){
+    localStorage.setItem("login","true");
+    showPage("home");
+  } else {
+    alert("Wrong username or password");
+  }
+}
+function logout(){
+  localStorage.removeItem("login");
+  showPage("login");
+}
+function toggleContact() {
+  var section = document.getElementById("contact");
+
+  if (section.style.display === "none") {
+    section.style.display = "block";
+  } else {
+    section.style.display = "none";
+  }
+}
+function addTask(){
+  let task = document.getElementById("task").value;
+  if(task.trim() === "") return;
+let li = document.createElement("li");
+  li.textContent = task;
+  document.getElementById("list").appendChild(li);
+  document.getElementById("task").value = "";
+}
+</script>
+</body>
+</html>
